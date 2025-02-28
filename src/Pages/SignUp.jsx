@@ -19,7 +19,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post('/api/auth/signup', formData, {
+      const res = await axios.post(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/auth/signup`, formData, {
 
         headers: {
           'Content-Type': 'application/json',

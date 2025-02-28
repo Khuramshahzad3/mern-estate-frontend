@@ -33,7 +33,7 @@ export default function Listing() {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`/api/listing/get/${params.listingId}`);
+        const res = await axios.get(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/listing/get/${params.listingId}`);
         const data = await res.data;
         if (data.success === false) {
           setError(true);

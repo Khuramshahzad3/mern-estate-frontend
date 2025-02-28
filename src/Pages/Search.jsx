@@ -53,7 +53,7 @@ export default function Search() {
       setLoading(true);
       setShowMore(false);
       const searchQuery = urlParams.toString();
-      const res = await axios.get(`/api/listing/get?${searchQuery}`);
+      const res = await axios.get(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/listing/get?${searchQuery}`);
       const data = await res.data;
       if (data.length > 8) {
         setShowMore(true);

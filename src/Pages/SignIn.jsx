@@ -25,7 +25,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       dispatch(SigninStart());
-      const res = await axios.post("/api/auth/signin", formData, {
+      const res = await axios.post(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/auth/signin`, formData, {
         headers: {
           "Content-Type": "application/json",
         },

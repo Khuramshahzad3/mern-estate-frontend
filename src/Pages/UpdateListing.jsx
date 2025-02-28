@@ -37,7 +37,7 @@ export default function UpdateListing() {
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.listingId;
-      const response = await axios.get(`/api/listing/get/${listingId}`);
+      const response = await axios.get(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/listing/get/${listingId}`);
       const data = await response.data;
       if (data.success === false) {
         console.log(data.message);
@@ -149,7 +149,7 @@ export default function UpdateListing() {
         return setError("Discount price must be lower than regular price");
       setLoading(true);
       setError(false);
-      const res = await axios.post(`/api/listing/update/${params.listingId}`, {
+      const res = await axios.post(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/listing/update/${params.listingId}`, {
         ...formData,
         userRef: currentUser._id,
       });

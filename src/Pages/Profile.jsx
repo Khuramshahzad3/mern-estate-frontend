@@ -112,7 +112,7 @@ export default function Profile() {
     try {
       dispatch(DeleteUserStart());
 
-      const response = await axios.delete(`/api/user/delete/${currentUser._id}`);
+      const response = await axios.delete(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/user/delete/${currentUser._id}`);
       const data = response.data;
       if (data.success === false) {
         dispatch(DeleteUserFailed(data.message));
@@ -128,7 +128,7 @@ export default function Profile() {
     try {
       dispatch(signOutUserStart());
 
-      const response = await axios.get("/api/auth/signout");
+      const response = await axios.get(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/auth/signout`);
       const data = response.data;
       if (data.success === false) {
         dispatch(signOutUserFailed(data.message));
@@ -148,7 +148,7 @@ export default function Profile() {
     try {
       setShowListingsError(false);
 
-      const response = await axios.get(`/api/user/listings/${currentUser._id}`);
+      const response = await axios.get(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/user/listings/${currentUser._id}`);
       const data = response.data;
       setShowListingsClicked(true);
       if (data.success === false) {
@@ -164,7 +164,7 @@ export default function Profile() {
 
   const handleListingDelete = async (listingId) => {
     try {
-      const response = await axios.delete(`/api/listing/delete/${listingId}`);
+      const response = await axios.delete(`${import.meta.env.VITE_REACT_BACKEND_BASEURL}/api/listing/delete/${listingId}`);
       const data = response.data;
       if (data.success === false) {
         console.log(data.message);
